@@ -20,7 +20,7 @@ jobs:
       with:
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
         resourceGroupName: 'resumechallenge59939'
-        templateLocation: './backend-arm.json'
+        template: './backend-arm.json'
         parameters: './parameters.json'
 
     - name: 'Logout'
