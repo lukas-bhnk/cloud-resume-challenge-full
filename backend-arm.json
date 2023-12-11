@@ -24,7 +24,7 @@
             "location": "[parameters('location')]",
             "kind": "functionapp",
             "properties": {
-                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+                "serverFarmId": "",
                 "siteConfig": {
                     "appSettings": [
                         {
