@@ -18,14 +18,30 @@
             }
         },
         {
+            "type": "Microsoft.Web/serverfarms",
+            "apiVersion": "2021-02-01",
+            "name": "[parameters('hostingPlanName')]",
+            "location": "[parameters('location')]",
+            "kind": "linux",
+            "sku": {
+                "name": "B1", // Basic tier, smallest size
+                "tier": "Basic",
+                "size": "B1",
+                "family": "B",
+                "capacity": 1 // Single instance
+            },
+            "properties": {
+                "reserved": true // Indicates this is for Linux
+            }
+        },
+        {
             "type": "Microsoft.Web/sites",
             "apiVersion": "2021-02-01",
             "name": "[parameters('functionAppName')]",
             "location": "[parameters('location')]",
-            "kind": "functionapp",
+            "kind": "functionapp,linux",
             "properties": {
-                "serverFarmId": "",
-                "functionPlanOS": "Linux",
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
                 "siteConfig": {
                     "appSettings": [
                         {
@@ -36,11 +52,13 @@
                             "name": "AzureWebJobsStorage",
                             "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', parameters('storageAccountName'), ';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-02-01').keys[0].value)]"
                         }
-                    ]
+                    ],
+                    "linuxFxVersion": "PYTHON|3.8"
                 }
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
+                "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
             ]
         },
         {
