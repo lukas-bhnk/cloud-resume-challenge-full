@@ -1,13 +1,10 @@
-import json
-import azure.functions as func
 import logging
-from azure.cosmos import CosmosClient
+import json
 import os
+import azure.functions as func
+from azure.cosmos import CosmosClient 
 
-app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
 
-@app.function_name(name="HttpTrigger1")
-@app.route(route="resume")
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
