@@ -1,41 +1,30 @@
-name: Deploy to Azure Storage
+name: deploy_frontend
+# deploys when push is made from frontend folder
 
-on: [push]
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'frontend/web/**'
 
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest  # Run the job on the latest Ubuntu VM
-
+  build:
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      # Checks out your repository under $GITHUB_WORKSPACE, so the job can access it
+      - uses: actions/checkout@v3
 
-    # Uncomment and modify the following lines if your project needs a build step
-    # - name: Build
-    #   run: <your build command>
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - name: 'Upload to Azure Blob Storage'
-      uses: cedric05/upload-to-azure-blob-storage@v1
-      with:
-        # Specify the directory to upload. Here, './web' implies that there's a folder named 'web' in your repository.
-        source-file: './frontend/web/*'  
-        
-        # base-project-path is usually the directory in the source repository that should be treated as the root. 
-        # If the entire repository is to be uploaded, this can be set to './'
-        base-project-path: './'  
-        
-        # target-file is the path in the Azure Blob Storage where files will be uploaded.
-        # '/' denotes the root of the container. Change this if you want to upload to a specific directory inside the container.
-        target-file: '/'  
-        
-        # Set to 'true' to overwrite existing files in the blob storage
-        overwrite: 'true'  
-        
-        # The name of the Azure Blob Storage container
-        container-name: '$web'  
-        
-        # Azure Storage Account name, set this in your repository's secrets
-        storage-account-name: ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }} 
-        
-        # Azure credentials, set this in your repository's secrets
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Upload to blob storage
+        uses: azure/CLI@v1
+        with:
+          inlineScript: |
+            az storage blob upload-batch --account-name resumestorage59939 --auth-mode key -d '$web' -s frontend/web --overwrite
+
+      # Azure logout
+      - name: logout
+        run: |
+          az logout
+        if: always()
