@@ -14,7 +14,7 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-
+    
     - name: 'Deploy ARM template'
       uses: azure/ARM-deploy@v1
       with:
@@ -22,6 +22,33 @@ jobs:
         resourceGroupName: 'resumechallenge59939'
         template: './backend/backend-arm.json'
         parameters: './backend/parameters.json'
+
+    - name: Upload to Azure Blob Storage
+      uses: cedric05/upload-to-azure-blob-storage@v1
+      with:
+        # Specify the directory to upload. Here, './web' implies that there's a folder named 'web' in your repository.
+        source-file: './web'  
+        
+        # base-project-path is usually the directory in the source repository that should be treated as the root. 
+        # If the entire repository is to be uploaded, this can be set to './'
+        base-project-path: './'  
+        
+        # target-file is the path in the Azure Blob Storage where files will be uploaded.
+        # '/' denotes the root of the container. Change this if you want to upload to a specific directory inside the container.
+        target-file: '/'  
+        
+        # Set to 'true' to overwrite existing files in the blob storage
+        overwrite: 'true'  
+        
+        # The name of the Azure Blob Storage container
+        container-name: '$web'  
+        
+        # Azure Storage Account name, set this in your repository's secrets
+        storage-account-name: ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }} 
+        
+        # Azure credentials, set this in your repository's secrets
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
     - name: 'Deploy Azure Function'
       uses: azure/functions-action@v1
       with:
