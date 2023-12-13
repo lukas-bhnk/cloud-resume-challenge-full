@@ -18,7 +18,7 @@ jobs:
       uses: cedric05/upload-to-azure-blob-storage@v1
       with:
         # Specify the directory to upload. Here, './web' implies that there's a folder named 'web' in your repository.
-        source-file: './frontend/web'  
+        source-file: './frontend/web/*'  
         
         # base-project-path is usually the directory in the source repository that should be treated as the root. 
         # If the entire repository is to be uploaded, this can be set to './'
