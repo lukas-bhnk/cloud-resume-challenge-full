@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lukas Behnke - CV</title>
+    <script>
+        window.onload = function() {
+                fetch('https://resumefunction59939new.azurewebsites.net/api/resume_counter?code=oeRwhdElrOPSqf3z3by-TyQO5bCZ3OsOdLqZMVK4eua9AzFuUoUWyw==')
+        .then(response => {
+            // Check if the request was successful
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Extract the counter value
+            document.getElementById("visitorCount").innerText = data.counter
+            // You can then use 'counter' as needed in your application
+        })
+        .catch(error => {
+            document.getElementById("visitorCount").innerText = "-"
+            console.error('There was a problem with your fetch operation:', error);
+        });
+
+            document.getElementById("visitorCount").innerText = counter;
+        };
+    </script>
+</head>
+<body>
+    <div class="visitor-counter">
+        <p>Visitor Count: <span id="visitorCount"></span></p>
+    </div>
+    <div class="container">
+    <div class="left-column">
+        <div class="cv-header">
+            <img src="linkedin-foto.jpg" alt="Lukas Behnke" class="cv-photo">
+            <h1>Lukas Behnke</h1>
+        </div>
+        <h2>Persönliche Angaben</h2>
+        <p>Wohnort: Münster, Deutschland</p>
+        <p>Email: <a href="mailto:lukasbehnke00@gmail.com">lukasbehnke00@gmail.com</a></p>
+        <div class="social-links">
+            <p><a id="linkedin" href= "https://www.linkedin.com/in/lukas-behnke-2b1153200/"> 
+                <i class="fa-brands fa-linkedin"></i> LinkedIn</a></p>
+            <p><a id="github" href= "https://github.com/lukas-bhnk"> <i class="fa-brands fa-github"></i>
+                 GitHub</a></p>
+        </div>
+        
+    
+        <h2>Technologien</h2>
+        <ul>
+            <li>Azure DevOps</li>
+            <li>Git</li>
+            <li>Snowflake</li>
+            <li>Azure</li>
+            <li>SAP S/4 Hana</li>
+        </ul>
+    
+        <h2>Programmiersprachen</h2>
+        <ul>
+            <li>Python</li>
+            <li>SQL</li>
+            <li>Java</li>
+            <li>JavaScript</li>
+            <li>YAML</li>
+            <li>Bash</li>
+        </ul>
+    </div>
+    <div class="right-column">
+        <h2>Berufserfahrung</h2>
+        <h3>Werkstudent, Bereich AI & Data – Data Platform Engineering, Schwarz IT KG</h3>
+        <p>JANUAR 2023 — AUGUST 2023</p>
+        <ul>
+            <li>Integration von Tools zur statischen Code Analyse und zur Überprüfung von Sichherheitsschwachstellen</li>
+            <li>Analyse und Reengineering von CI/CD-Pipelines</li>
+            <li>Support, Wartung und Weiterentwicklung von CI/CD-Pipelines</li>
+        </ul>
+        <h3>Werkstudent, Bereich BI, AI & Data – Data Model & Analyst, Schwarz IT KG</h3>
+        <p>AUGUST 2022 — JANUAR 2023</p>
+        <ul>
+            <li>Testautomatisierung zur Qualitätssicherung von Datenmodellen mit SonarQube und Azure DevOps</li>
+            <li>Analyse und Performance Optimierungen von SQL-Abfragen im Snowflake Cloud Data Warehouse</li>
+            <li>Unterstützung bei der Entwicklung von Datenmodellen</li>
+        </ul>
+        <h3>Werkstudent, Bereich BI, AI & Data - Test & Qualitymanagement, Schwarz IT KG</h3>
+        <p>JANUAR 2022 — JULI 2022</p>
+        <ul>
+            <li>Testautomatisierung zur Qualitätssicherung von Datenmodellen mit SonarQube und Azure DevOps</li>
+            <li>Analyse und Prüfung umgesetzter Lösungen in Azure DevOps</li>
+        </ul>
+        <h3>Industriekaufmann, Olsberg GmbH, Olsberg</h3>
+        <p>AUGUST 2016 — OKTOBER 2018</p>
+        <ul>
+            <li>Abteilungen: Buchhaltung, Controlling, Einkauf, Logistik, Personal und Vertrieb</li>
+        </ul>
+
+        <h2>Ausbildung</h2>
+        <h3>B.Sc. Wirtschaftsinformatik, FH Münster, Münster</h3>
+        <p>OKTOBER 2020 — JULI 2024</p>
+        <!-- Add other education entries here -->
+
+        <h2>Kurse</h2>
+        <ul id="courses">
+            <li>Azure Fundamentals, Microsoft - <span class="date">OKTOBER 2023</span><a href="https://learn.microsoft.com/api/credentials/share/de-de/LukasBehnke-5317/A8C1FD1BFA5E29C4?sharingId">NACHWEIS ANZEIGEN</a></li>
+            <li>SAP Certified Application Associate - Business Process Integration with SAP S/4HANA 2020, SAP - <span class="date">DEZEMBER 2021</span><a href="https://www.credly.com/badges/d646a4f5-c46e-4e02-a97d-87549f8b080f/public_url">NACHWEIS ANZEIGEN</a></li>
+            <li>Enterprise Resource Planning mit SAP (TS 410), TH Brandenburg - <span class="date">DEZEMBER 2021</span><a href="https://e-zertifikat.th-brandenburg.de/gyxcy-wacjy-ocyge-adaze-bygme">NACHWEIS ANZEIGEN</a></li>
+            <li>SQL for Data Science, University of California - UC Davis - <span class="date">SEPTEMBER 2021</span><a href="https://coursera.org/share/54fb034d77f10db80e0854533d3eac6a">NACHWEIS ANZEIGEN</a></li>
+            <li>Python Bootcamp, Udemy Academy - <span class="date">MÄRZ 2021</span><a href="https://www.udemy.com/certificate/UC-78350970-5ecb-4081-9c26-7d031b1e6a06/">NACHWEIS ANZEIGEN</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

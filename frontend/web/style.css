@@ -1,0 +1,212 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: #333;
+}
+
+h1 {
+    color: #333;
+    font-size: 2em;
+    text-align: center;
+    padding: 20px 0;
+}
+
+h2 {
+    color: #333;
+    font-size: 1.5em;
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+}
+
+h3 {
+    color: #555;
+    font-size: 1.2em;
+}
+
+p, li {
+    font-size: 1em;
+}
+
+ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+a {
+    color: #06c;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+/* Allgemeine Stile für Listen */
+ul {
+    list-style-type: none; /* Entfernt die Bullet Points */
+    padding: 0; /* Entfernt den Standard-Padding */
+}
+
+/* Einzelne Listenelemente */
+ul li {
+    background-color: #f0f0f0; /* Hintergrundfarbe für jedes Listenelement */
+    padding: 10px 15px; /* Innerer Abstand */
+    margin-bottom: 5px; /* Abstand zwischen den Listenelementen */
+    border-left: 5px solid #333; /* Linker Rand als Akzent */
+    transition: all 0.3s ease; /* Weiche Übergangseffekte */
+    cursor: pointer; /* Cursor-Änderung beim Überfahren */
+    font-weight: bold; /* Schrift fett */
+}
+
+/* Hover-Effekt für Listenelemente */
+ul li:hover {
+    background-color: #e0e0e0; /* Ändert die Hintergrundfarbe beim Überfahren */
+    border-left-color: #06c; /* Ändert die Farbe des linken Rands */
+    transform: translateX(5px); /* Verschiebt das Element leicht nach rechts */
+}
+ /* Header */
+ 
+.cv-photo {
+    width: 140px; /* oder die gewünschte Größe */
+    height: auto; /* behält das Seitenverhältnis bei */
+    border-radius: 50%; /* optional, für ein rundes Bild */
+    margin-right: 20px; /* optional, für Abstand zum Namen */
+}
+
+.cv-header {
+    display: flex;
+    align-items:normal;
+    justify-content: start;
+}
+
+/* kurse inhalte */
+#courses li {
+    list-style-type: none; /* Entfernt die Bullet Points nur für die Kursliste */
+    border-bottom: 1px solid #ccc; /* Fügt einen Trennstrich hinzu */
+    padding-bottom: 10px; /* Fügt etwas Abstand unterhalb des Inhalts des Listenelements hinzu */
+    margin-bottom: 10px; /* Fügt Abstand nach jedem Listenelement hinzu */
+}
+
+.date {
+    display: block; /* setzt das Datum auf eine eigene Zeile */
+}
+
+#courses li a {
+    display: block; /* setzt den Link "NACHWEIS ANZEIGEN" auf eine eigene Zeile */
+    margin-top: 5px; /* optional, fügt Abstand zwischen Datum und Link hinzu */
+    text-decoration: underline; /* optional, unterstreicht den Link */
+    color: #0000EE; /* optional, setzt die Linkfarbe, standardmäßig blau */
+}
+
+/* social links */
+.social-links {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.social-links p {
+    margin-right: 20px; /* Fügt Abstand zwischen den Icons hinzu */
+}
+
+.social-links a {
+    text-decoration: none; /* Entfernt die Unterstreichung von Links */
+    color: #333; /* Setzt die Standardfarbe für Text und Icons */
+    transition: color 0.3s ease; /* Weicher Übergangseffekt für Farbwechsel */
+}
+
+.social-links #linkedin:hover {
+    color: rgb(54, 0, 204); /* Farbwechsel beim Überfahren */
+}
+
+.social-links #github:hover {
+    color: rgb(113, 154, 9); /* Farbwechsel beim Überfahren */
+}
+
+.fa-brands {
+    margin-right: 5px; /* Fügt Abstand zwischen Icon und Text hinzu */
+}
+
+/* icons */
+.fa-brands.fa-linkedin {
+    font-size: 20px;
+}
+.fa-brands.fa-github{
+    font-size: 20px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Ermöglicht das Umfließen der Spalten auf kleineren Bildschirmen */
+    min-height: 100vh;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.left-column, .right-column {
+    flex: 1;
+    padding: 20px
+}
+
+.cv-photo {
+    width: 150px; /* oder die gewünschte Größe */
+    height: auto; /* behält das Seitenverhältnis bei */
+    border-radius: 50%; /* optional, für ein rundes Bild */
+}
+
+/* Optional: Weitere Stile für die linke und rechte Spalte */
+.left-column {
+    padding-right: 20px; /* optional, fügt rechts etwas Abstand hinzu */
+    background-color: #f0f0f0;
+}
+
+.right-column {
+    padding-left: 20px; /* optional, fügt links etwas Abstand hinzu */
+    background-color: #ffffff;
+}
+
+/* Visitor Counter Styles */
+#visitorCount {
+    font-size: 20px;
+    color: #000096; /* Green color */
+    font-weight: bold;
+}
+
+.visitor-counter {
+    text-align: center;
+    background-color: #f2f2f2;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.visitor-counter p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+@media screen and (min-width: 1201px) {
+    .container{
+        border: 2px solid rgb(153, 153, 153);
+    }
+}
+@media screen and (max-width: 871px) {
+    .left-column, .right-column {
+        flex-basis: 100%; /* Nimmt die volle Breite des Bildschirms ein */
+    }
+    .left-column {
+        border-bottom: 2px solid black
+    }
+}
+
+/* Sehr kleine Bildschirme (Smartphones) */
+@media screen and (max-width: 480px) {
+    .cv-photo {
+        width: 120px; /* Verkleinert das Bild auf sehr kleinen Bildschirmen */
+    }
+}

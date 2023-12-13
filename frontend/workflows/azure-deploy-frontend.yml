@@ -1,0 +1,33 @@
+name: Deploy to Azure Storage
+
+on:
+  push:
+    branches:
+      - main  # Set this to the branch you want to deploy from
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    # Add steps for building your site here if necessary
+    # - name: Build
+    #   run: <your build command>
+
+    - name: 'Azure Login'
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: 'Deploy to Azure Storage'
+      uses: bacongobbler/azure-blob-storage-upload@v1.1.1
+      with:
+        source_dir: './web'  # Directory containing your built site
+        container_name: '$web'
+        connection_string: ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }}
+        sync: true
+
+    - name: 'Logout'
+      run: az logout
