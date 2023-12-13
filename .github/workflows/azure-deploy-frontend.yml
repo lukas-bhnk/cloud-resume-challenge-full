@@ -1,12 +1,7 @@
 name: deploy_frontend
 # deploys when push is made from frontend folder
 
-on:
-  push:
-    branches: [ main ]
-    paths:
-      - 'frontend/web/**'
-
+on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
