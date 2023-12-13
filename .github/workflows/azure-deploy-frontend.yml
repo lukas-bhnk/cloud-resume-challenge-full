@@ -17,7 +17,7 @@ jobs:
     # - name: Build
     #   run: <your build command>
 
-    - name: Upload to Azure Blob Storage
+    - name: 'Upload to Azure Blob Storage'
       uses: cedric05/upload-to-azure-blob-storage@v1
       with:
         # Specify the directory to upload. Here, './web' implies that there's a folder named 'web' in your repository.
