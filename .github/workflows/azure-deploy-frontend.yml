@@ -1,33 +1,25 @@
-name: Deploy to Azure Storage
+name: deploy_frontend
+# deploys when push is made from frontend folder
 
-on:
-  push:
-    branches:
-      - main  # Set this to the branch you want to deploy from
-
+on: [push]
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
-    # Add steps for building your site here if necessary
-    # - name: Build
-    #   run: <your build command>
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - name: 'Azure Login'
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Upload to blob storage
+        uses: azure/CLI@v1
+        with:
+          inlineScript: |
+            az storage blob upload-batch --account-name resumestorage59939 --auth-mode key -d '$web' -s frontend/web --overwrite
 
-    - name: 'Deploy to Azure Storage'
-      uses: bacongobbler/azure-blob-storage-upload@v1.1.1
-      with:
-        source_dir: './frontend/web'  # Directory containing your built site
-        container_name: '$web'
-        connection_string: ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }}
-        sync: true
-
-    - name: 'Logout'
-      run: az logout
+      # Azure logout
+      - name: logout
+        run: |
+          az logout
+        if: always()
