@@ -34,5 +34,9 @@ jobs:
         COSMOS_DB_ENDPOINT: ${{ secrets.COSMOS_DB_ENDPOINT }}
         COSMOS_DB_KEY: ${{ secrets.COSMOS_DB_KEY }}
 
+    - name: 'Set Function App Settings'
+      run: |
+        az functionapp config appsettings set --name resumefunction59939new --resource-group resumechallenge59939 --settings COSMOS_DB_ENDPOINT=${{ secrets.COSMOS_DB_ENDPOINT }} COSMOS_DB_KEY=${{ secrets.COSMOS_DB_KEY }}
+
     - name: 'Logout'
       run: az logout
