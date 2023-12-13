@@ -16,18 +16,23 @@ jobs:
     # - name: Build
     #   run: <your build command>
 
-    - name: 'Azure Login'
-      uses: azure/login@v1
+    - name: Upload to Azure Blob Storage
+  # You may pin to the exact commit or the version.
+  # uses: cedric05/upload-to-azure-blob-storage@e290ac0044cbcd61f13a1e28d00b595904238b63
+      uses: cedric05/upload-to-azure-blob-storage@v1
       with:
+        # source file to upload
+        source-file: './web'
+        # base path to stack up
+        base-project-path: ''
+        # target path in azure blob storage container
+        target-file: '/'
+        # overwrite if target-dir exists
+        overwrite: 'true' # optional
+        # azure blob storage container name
+        container-name: '$web'
+        # azure storage account name
+        storage-account-name: ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }}
+        # az create-rb output
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-    - name: 'Deploy to Azure Storage'
-      uses: bacongobbler/azure-blob-storage-upload@v1.1.1
-      with:
-        source_dir: './frontend/web'  # Directory containing your built site
-        container_name: '$web'
-        connection_string: ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }}
-        sync: true
-
-    - name: 'Logout'
-      run: az logout
+              
