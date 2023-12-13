@@ -213,12 +213,12 @@ ul li:hover {
     padding: 0;
 }
 
-@media screen and (min-width: 1201px) {
+@media screen and (min-width: 1301px) {
     .container{
         border: 2px solid rgb(153, 153, 153);
     }
 }
-@media screen and (max-width: 871px) {
+@media screen and (max-width: 1100px) {
     .left-column, .right-column {
         flex-basis: 100%; /* Nimmt die volle Breite des Bildschirms ein */
     }
