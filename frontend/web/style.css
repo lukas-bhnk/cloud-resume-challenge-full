@@ -228,8 +228,8 @@ ul li:hover {
 }
 
 /* Sehr kleine Bildschirme (Smartphones) */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 540px) {
     .cv-photo {
-        width: 90px; /* Verkleinert das Bild auf sehr kleinen Bildschirmen */
+        width: 75px; /* Verkleinert das Bild auf sehr kleinen Bildschirmen */
     }
 }
