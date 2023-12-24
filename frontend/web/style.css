@@ -198,12 +198,23 @@ ul li:hover {
     padding: 20px 0;
     font-size: 14px;
 }
-.blog-post-preview {
+.blog-container{
+    display: flex;
+    flex-wrap: wrap; /* Ermöglicht das Umfließen der Spalten auf kleineren Bildschirmen */
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
 
+.blog-post-preview {
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    width: 100%;
     border: 1px solid #ddd;
     padding: 20px;
     border-radius: 8px;
-    margin: 20px;
 }
 
 .blog-post-preview h3 {
