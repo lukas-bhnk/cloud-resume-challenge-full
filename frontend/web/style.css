@@ -198,6 +198,22 @@ ul li:hover {
     padding: 20px 0;
     font-size: 14px;
 }
+.blog-post-preview {
+
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px;
+}
+
+.blog-post-preview h3 {
+    margin-top: 0;
+}
+
+.blog-post-preview a {
+    color: #007bff;
+    text-decoration: none;
+}
 
 .footer a {
     color: #4fcaff;
