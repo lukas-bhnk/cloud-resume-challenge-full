@@ -86,7 +86,30 @@ ul li:hover {
     align-items:normal;
     justify-content: start;
 }
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px; /* Oder jede beliebige Höhe */
+}
+button {
 
+    background-color: #06c; /* Green */
+    color: white;
+    padding: 15px 32px;
+    border: none;
+    border-radius: 20px; /* Runde Ecken */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+
+}
+
+button:hover {
+    background-color: rgb(0, 113, 227);
+}
 /* kurse inhalte */
 #courses li {
     list-style-type: none; /* Entfernt die Bullet Points nur für die Kursliste */
