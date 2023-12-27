@@ -292,6 +292,8 @@ ul li:hover {
     .left-column {
         border-bottom: 2px solid black
     }
+
+
 }
 
 /* Sehr kleine Bildschirme (Smartphones) */
@@ -303,5 +305,12 @@ ul li:hover {
 
     .cv-header h1 {
         padding-top: 0px;
+    }
+
+
+    .skill-bar {
+        width: 100%;
+        background-color: #ddd;
+        height: 15px; /* Adjust the height of the bars */
     }
 }
