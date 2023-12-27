@@ -9,25 +9,27 @@ body {
 
 h1 {
     color: #333;
-    font-size: 2em;
+    font-size: 1.5em;
     text-align: center;
-    padding: 20px 0;
+    padding: 5px 0;
 }
 
 h2 {
     color: #333;
-    font-size: 1.5em;
+    font-size: 1.2em;
     border-bottom: 2px solid #333;
     padding-bottom: 5px;
 }
 
 h3 {
     color: #555;
-    font-size: 1.2em;
-}
-
-p, li {
     font-size: 1em;
+}
+li {
+    font-size: 0.83em;
+}
+p, .main ul li {
+    font-size: 0.95em;
 }
 
 ul {
@@ -54,10 +56,14 @@ ul li {
     background-color: #f0f0f0; /* Hintergrundfarbe für jedes Listenelement */
     padding: 10px 15px; /* Innerer Abstand */
     margin-bottom: 5px; /* Abstand zwischen den Listenelementen */
-    border-left: 5px solid #333; /* Linker Rand als Akzent */
+
     transition: all 0.3s ease; /* Weiche Übergangseffekte */
     cursor: pointer; /* Cursor-Änderung beim Überfahren */
     font-weight: bold; /* Schrift fett */
+}
+
+.main ul li {
+    border-left: 5px solid #333; /* Linker Rand als Akzent */
 }
 
 /* Hover-Effekt für Listenelemente */
@@ -137,6 +143,35 @@ ul li:hover {
     font-size: 20px;
 }
 
+.skills-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.skills-list li {
+    margin-bottom: 8px;
+}
+
+.skill-name {
+    display: inline-block;
+    width: 120px; /* Adjust as needed */
+}
+
+.skill-bar {
+    width: 100%;
+    background-color: #ddd;
+    height: 20px; /* Adjust the height of the bars */
+    border-radius: 4px; /* Rounded corners for bars */
+}
+
+.skill-level {
+    height: 100%;
+    width: 0; /* Initial width, adjust as needed */
+    background-color: #06c; /* Color of the skill level */
+    border-radius: 4px; /* Rounded corners for the fill */
+    transition: width 0.5s;
+}
+
 .container {
     display: flex;
     flex-wrap: wrap; /* Ermöglicht das Umfließen der Spalten auf kleineren Bildschirmen */
@@ -146,14 +181,19 @@ ul li:hover {
     margin: auto;
 }
 
-.left-column, .right-column {
+.left-column {
     flex: 1;
-    padding: 20px
+    padding: 20px;
+}
+
+.right-column {
+    flex: 2;
+    padding: 20px;
 }
 
 .cv-photo {
-    width: 150px; /* oder die gewünschte Größe */
-    height: auto; /* behält das Seitenverhältnis bei */
+    width: 100px; /* oder die gewünschte Größe */
+    height: 100px; /* behält das Seitenverhältnis bei */
     border-radius: 50%; /* optional, für ein rundes Bild */
 }
 
